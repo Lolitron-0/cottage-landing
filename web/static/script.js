@@ -36,7 +36,7 @@ function fetchHouseCard(url, houseId) {
                     </li>
                     <li class="d-flex gap-4">
                         <div>
-                            <h5 class="mb-0">Материал</h5>
+                            <h5 class="mb-0">Материалллллл</h5>
                             самый хороший
                         </div>
                     </li>
@@ -47,8 +47,7 @@ function fetchHouseCard(url, houseId) {
                         </div>
                     </li>
                 </ul>
-                <a class="btn btn-lg btn-primary mt-5 w-100" href="https://cdn.discordapp.com/attachments/964222431571091516/1098266601964453898/doc_2022-11-10_13-44-37.mp4">ЗАБЕРИТЕ МОИ
-                    БАБКИ
+                <a class="btn btn-lg btn-primary mt-5 w-100" href="https://cdn.discordapp.com/attachments/964222431571091516/1098266601964453898/doc_2022-11-10_13-44-37.mp4">Связаться
                 </a>
             </div>
             `;
