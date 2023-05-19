@@ -22,29 +22,53 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
     background-color: #383f45;
     border-radius: 10px;
     margin: auto;
-    padding: 20px;
-    width: max-content;
+    width: 50%;
     color: #adb5bd;
     top: 50%;
     transform: translateY(-50%);
 
 }
 
+.house-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.house-img:hover {
+    transform: scale(1.01);
+}
+
+.carousel-zoomed {
+    transition: 0.3s;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.visible-text {
+    color: white;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
-    margin-bottom: 4rem;
     height: 95vh;
+}
+
+.carousel-mini {
+    height: 45vh;
 }
 
 /* Since positioning the image, we need to help out the caption */
@@ -60,6 +84,23 @@ body {
     height: 100%;
 }
 
+.cutout-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1.5rem
+}
+
+.banner-image {
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.parallax-wrapper {
+    width: 100%;
+    height: 100%;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

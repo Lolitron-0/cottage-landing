@@ -2,11 +2,11 @@ from django.db import models
 
 
 class House(models.Model):
-    name = models.CharField(max_length=100)
-    price = models.FloatField()
+    xSize = models.CharField(max_length=5,default='0')
+    ySize = models.CharField(max_length=5,default='0')
 
     def __str__(self):
-        return self.name
+        return str(self.xSize) + 'x' + str(self.ySize)
 
 class Image(models.Model):
     house = models.ForeignKey(House, on_delete=models.CASCADE)

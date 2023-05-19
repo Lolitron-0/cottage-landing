@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-bs-theme="auto">
+<html lang="ru" data-bs-theme="light">
 <head>
     <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
 
@@ -95,6 +95,10 @@
         }
     </style>
 
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'usr_style.css' %}">
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
@@ -120,58 +124,6 @@
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
     </symbol>
 </svg>
-
-<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-            id="bd-theme"
-            type="button"
-            aria-expanded="false"
-            data-bs-toggle="dropdown"
-            aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-            <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
-                    aria-pressed="false">
-                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-                    <use href="#sun-fill"></use>
-                </svg>
-                Light
-                <svg class="bi ms-auto d-none" width="1em" height="1em">
-                    <use href="#check2"></use>
-                </svg>
-            </button>
-        </li>
-        <li>
-            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
-                    aria-pressed="false">
-                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-                    <use href="#moon-stars-fill"></use>
-                </svg>
-                Dark
-                <svg class="bi ms-auto d-none" width="1em" height="1em">
-                    <use href="#check2"></use>
-                </svg>
-            </button>
-        </li>
-        <li>
-            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
-                    aria-pressed="true">
-                <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
-                    <use href="#circle-half"></use>
-                </svg>
-                Auto
-                <svg class="bi ms-auto d-none" width="1em" height="1em">
-                    <use href="#check2"></use>
-                </svg>
-            </button>
-        </li>
-    </ul>
-</div>
 
 
 <header data-bs-theme="dark">
@@ -205,7 +157,7 @@
     </nav>
 </header>
 
-<main>
+<main style="overflow-x: hidden; -ms-overflow-x: hidden">
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -215,44 +167,30 @@
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner" style="height: 95vh">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p>Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Связаться</a></p>
-                    </div>
+
+            <div class="carousel-item active" id="carousel-item1">
+                <div class="parallax-wrapper">
+                    <img id="banner" class="banner banner-image" src="images/banner_btm.jpg" alt="bruh">
                 </div>
             </div>
             <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                     aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
-                </svg>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                    </div>
+                <div class="parallax-wrapper">
+                    <img id="banner" class="banner2 banner-image" src="images/banner2.jpg" alt="bruh"
+                         style="object-fit: cover; width: 100%; height: 100%">
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" style="overflow: hidden">
                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
                      aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
                     <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
                 </svg>
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="carousel-caption text-start">
+                <h1>Example headline.</h1>
+                <p>Some representative placeholder content for the first slide of the carousel.</p>
+                <p><a class="btn btn-lg btn-primary" href="#">Связаться</a></p>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -271,23 +209,6 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            {% for house in houses %}
-                <div class="col-lg-4 fadeIn">
-                    <img class="bd-placeholder-img rounded-circle" width="140" height="140"
-                         src= "{{ house.image_set.all.0.image }}" role="img" style="object-fit: cover"/>
-
-                    <h2 class="fw-normal">{{ house.name }}</h2>
-                    <p>гагагагагагагагага</p>
-                    <p style="display: none" class="houseId">{{ house.id }}</p>
-                    <p><a class="btn btn-secondary" name="moreBtn">Подробнее &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            {% endfor %}
-        </div><!-- /.row -->
-
-
 
         <!-- START THE FEATURETTES -->
 
@@ -349,24 +270,96 @@
             </div>
         </div>
 
-        <hr class="featurette-divider">
+        <hr class="featurette-divider" style="margin-bottom: 0">
 
         <!-- /END THE FEATURETTES -->
 
+
     </div><!-- /.container -->
+
+    <!-- Three columns of text below the carousel -->
+    <div class="cutout-container">
+        <img alt="" src="images/banner_btm.jpg" class="banner-btm banner-image">
+        <div class="row container" style="margin-left: auto; margin-right: auto">
+            {% for house in houses %}
+                <div class="col-lg-4 fadeIn">
+                    <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                         src="{{ house.image_set.all.0.image }}" role="img" style="object-fit: cover"/>
+
+                    <h2 class="fw-normal visible-text">Дом {{ house.xSize }}x{{ house.ySize }}</h2>
+                    <p style="display: none" class="houseId">{{ house.id }}</p>
+                    <p><a class="btn btn-secondary" name="moreBtn">Подробнее &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            {% endfor %}
+        </div><!-- /.row -->
+    </div>
     <div id="modalBg" class="modal-back" style="display: none">
 
         <!-- Modal content -->
         <div class="modal-content" id="modal">
-
         </div>
 
     </div>
 
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+                aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+                <use href="#sun-fill"></use>
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light"
+                        aria-pressed="true">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    Light
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                        aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto"
+                        aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="zoomBg" class="modal-back" style="display: none">
+        <!-- Modal content -->
+    </div>
+
+
     <!-- FOOTER -->
-    <footer class="container">
+    <footer class="container" style="margin-bottom: 0; margin-top: 3rem">
         <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy;2023 Turthouse &middot; <a href="https://turthouse.ru">Строительство деревянных домов под ключ</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy;2023 Turthouse &middot; <a href="https://turthouse.ru">Строительство деревянных домов под ключ</a>
+            &middot; <a href="#">Terms</a></p>
     </footer>
 </main>
 
@@ -375,7 +368,33 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 <script src="{% static 'script.js' %}"></script>
+
+
 <script>
+
+    let banner = document.getElementsByClassName("banner")
+    new simpleParallax(banner, {
+        delay: .5,
+        transition: 'cubic-bezier(0,0,0,1)',
+        scale: 1.2,
+        customWrapper: '.parallax-wrapper'
+    })
+
+    let banner2 = document.getElementsByClassName("banner2")
+    new simpleParallax(banner2, {
+        delay: .5,
+        transition: 'cubic-bezier(0,0,0,1)',
+        scale: 1.2,
+        customWrapper: '.parallax-wrapper'
+    })
+
+    let bannerBottom = document.getElementsByClassName("banner-btm")
+    new simpleParallax(bannerBottom, {
+        delay: .5,
+        transition: 'cubic-bezier(0,0,0,1)',
+        scale: 1.2,
+    })
+
     const moreBtns = document.getElementsByName("moreBtn");
     const get_house_url = "{% url 'get_house' %}";
 
@@ -401,6 +420,7 @@
                 duration: modalAnimDuration,
                 iterations: 1
             })
+            modalBg.focus()
         }
     });
 
@@ -421,6 +441,13 @@
             }, modalAnimDuration - 50)
         }
     }
+    window.onscroll = (event) => {
+        if (event.target === document) {
+            event.stopPropagation()
+
+        }
+    }
+
 </script>
 
 </body>

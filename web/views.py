@@ -15,6 +15,8 @@ def index(request):
 
 def get_house(request):
     id = request.headers.get('houseId')
-    house = House.objects.filter(id=int(id)).values()
-    return JsonResponse({'house': list(house)[0]})
+    house_set = House.objects.filter(id=int(id))
+    house_obj = house_set[0]
+    house_dict = list(house_set.values())[0]
+    return JsonResponse({'house': house_dict, 'images': list([obj.image.url for obj in house_obj.image_set.all()])})
 
