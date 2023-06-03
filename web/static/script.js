@@ -93,8 +93,6 @@ function fetchHouseCard(url, houseId) {
                         </div>
                     </li>
                 </ul>
-                <a class="btn btn-lg btn-primary mt-5 w-100" href="https://cdn.discordapp.com/attachments/964222431571091516/1098266601964453898/doc_2022-11-10_13-44-37.mp4">Связаться
-                </a>
                 </div>
             </div>
             `;
@@ -105,7 +103,7 @@ function fetchHouseCard(url, houseId) {
                 img.onload = () => {
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
                     document.maxWidth = Math.max(document.maxWidth, img.clientHeight * aspectRatio);
-                    modal.style.width = document.maxWidth + "px";
+                    modal.style.width = Math.min(window.innerWidth, document.maxWidth)  + "px";
                 }
             }
 

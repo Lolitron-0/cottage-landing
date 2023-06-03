@@ -95,9 +95,15 @@
         }
     </style>
 
+
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=663d74d4-a298-46e3-ae55-5de08d96750f&lang=ru_RU"
+            type="text/javascript"></script>
 
+    <style>.ymaps-2-1-79-ground-pane {
+        filter: grayscale(100%);
+    }</style>
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'usr_style.css' %}">
@@ -186,47 +192,43 @@
 
         <hr class="featurette-divider">
 
-        <div class="row featurette ">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span
-                        class="text-body-secondary">It’ll blow your mind.</span></h2>
-                <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting
-                    prose here.</p>
+        <div class="row featurette featurette-card">
+            <div class="featurette-content">
+                <h2 class="fw-normal lh-1 featurette-title">Цель проекта. </h2>
+                <p class="lead">Наша цель – создание кедрового питомника для разведения и выращивания
+                    кедровых саженцев на территории «Барских полей», а также создание жилой зоны с уникальной
+                    экосистемой. </p>
             </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
-                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                </svg>
-            </div>
-        </div>
+            <div class="col-md-2">
+                {#                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"#}
+                {#                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"#}
+                {#                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>#}
+                {#                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>#}
+                {#                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>#}
+                {#                </svg>#}
 
-        <hr class="featurette-divider">
-
-        <div class="row featurette ">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span
-                        class="text-body-secondary">See for yourself.</span></h2>
-                <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how
-                    this layout would work with some actual real-world content in place.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
-                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                </svg>
             </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span>
+        <div class="row featurette featurette-card">
+            <div class="featurette-content">
+                <h2 class="fw-normal lh-1 featurette-title">Коттеджи. </h2>
+                <p class="lead">Для застройки поселка строительной компанией Тарт-Хаус разработаны проекты домов в
+                    соответствии с концепцией экопоселения </p>
+            </div>
+            <div class="col-md-5 order-md-1" style="width: 700px; height: 500px;">
+                <img src="images/Дом_2_filmic_Hue.jpg" alt=""
+                     class="" style="width: 100%; height: 100%; object-fit: cover">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="column featurette featurette-card">
+            <div class="featurette-content">
+                <h2 class=" fw-normal lh-1 featurette-title">And lastly, this one. <span class="text-body-secondary">Checkmate.</span>
                 </h2>
                 <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
                     intended to be actually read, simply here to give you a better view of what this would look like
@@ -246,17 +248,26 @@
 
         <!-- /END THE FEATURETTES -->
 
-
     </div><!-- /.container -->
 
+    <div class="geo-block">
+        <div class="block-title">
+            <h2>Всего в часе езды
+                <br>
+                от <span style="color: var(--highlight-color)">МКАД</span>
+            </h2>
+        </div>
+        <div id="map" class="map"></div>
+    </div>
+
     <!-- Three columns of text below the carousel -->
-    <div class="cutout-container">
+    <div class="cutout-container" style="padding-top: 0; height: max-content;">
         <img alt="" src="images/banner_btm.jpg" class="banner-btm banner-image" style="filter: brightness(0.6)">
-        <div class="row container" style="margin-left: auto; margin-right: auto;">
+        <div class="row container" style="margin: auto; margin-top: 5rem">
             {% for house in houses %}
-                <div class="col-lg-4 fadeIn" style="text-align: center; margin-bottom: 1.5rem">
+                <div class="col-lg-4 fadeIn housecard-container">
                     <img class="bd-placeholder-img house-preview" width="140" height="140"
-                         src="{{ house.image_set.all.0.image }}" role="img" style="object-fit: cover"/>
+                         src="{{ house.get_preview_image.image }}" role="img" style="object-fit: cover"/>
 
                     <h2 class="fw-normal visible-text">Дом {{ house.xSize }}x{{ house.ySize }}</h2>
                     <p style="display: none" class="houseId">{{ house.id }}</p>
@@ -265,6 +276,53 @@
             {% endfor %}
         </div><!-- /.row -->
     </div>
+
+    <div class="geo-block" style="height: max-content; padding: 3rem;">
+        <div class="block-title">
+            <h2>Льготная <span style="color: var(--highlight-color)">ипотека</span> у банков-партнеров</h2>
+        </div>
+        <div class="bank-icons-block">
+            <img src="images/Domclick.png" alt="" class="bank-icon">
+            <img src="images/Pochtabank.jpg" alt="" class="bank-icon">
+            <img src="images/Vtb.png" alt="" class="bank-icon">
+        </div>
+    </div>
+
+    <hr class="featurette-divider" style="margin: 0rem;">
+
+    <div class="cutout-container">
+        <div class="column featurette featurette-card">
+            <div class="featurette-content" style="align-items: flex-start; width: 75%">
+                <h2 class=" fw-normal lh-1 featurette-title">Контакты</h2>
+                <div style="display: flex">
+                    <div style="display: flex; flex-direction: column">
+                        <h4>АН "На Петровке"</h4>
+                        <div class="tabbed">
+                            <h5>Адрес: <span class="lead">ул. Петровка, дом 20/1 </span></h5>
+                            <span class="lead">+7 (925) 891 11 19</span>
+                            <span class="lead">+7 (999) 346 88 14</span>
+                            <span class="lead">+7 (459) 777 00 32</span>
+                            <span class="lead">vladimirskaya@napetrovke.ru</span>
+                            <br>
+                            <a class="lead" href="https://napetrovke.ru">napetrovke.ru</a>
+                        </div>
+                        <h4>Застройщик ООО"Тарт-Хаус" <br>
+                            <a class="lead tabbed" href="https://turthouse.ru">turthouse.ru</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            {#            <div class="col-md-5">#}
+            {#                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"#}
+            {#                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"#}
+            {#                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>#}
+            {#                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>#}
+            {#                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>#}
+            {#                </svg>#}
+            {#            </div>#}
+        </div>
+    </div>
+
     <div id="modalBg" class="modal-back" style="display: none">
 
         <!-- Modal content -->
@@ -280,7 +338,7 @@
 
 
     <!-- FOOTER -->
-    <footer class="container" style="margin-bottom: 0; margin-top: 3rem">
+    <footer class="footer">
         <p class="float-end"><a href="#">Back to top</a></p>
         <p>&copy;2023 Turthouse &middot; <a href="https://turthouse.ru">Строительство деревянных домов под ключ</a>
             &middot; <a href="#">Terms</a></p>
@@ -295,6 +353,67 @@
 
 
 <script>
+
+    ymaps.ready(init);
+
+    let mkad = [55.789440162292124, 37.37281654220273];
+    let settlement = [56.09700888251914, 36.470143658374795];
+
+    function init() {
+        let myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 7,
+                controls: ['zoomControl', 'routeButtonControl'],
+            },
+            {
+                maxZoom:15
+            }
+        );
+
+        let multiRoute = new ymaps.multiRouter.MultiRoute({
+            referencePoints: [
+                mkad, settlement
+            ],
+            params: {
+                results: 3
+            }
+        }, {
+            boundsAutoApply: true,
+            routeActiveStrokeColor: "51750c",
+            pinIconFillColor: "51750c",
+            wayPointStartIconFillColor: "#51750c",
+            wayPointFinishIconFillColor: "#51750c",
+        });
+
+
+        myMap.behaviors.disable(['scrollZoom'])
+        myMap.geoObjects.add(multiRoute);
+
+        //myMap.events.add('click', function (e) {
+        //    var coords = e.get('coords');
+        //    let myPlacemark;
+        //    // Если метка уже создана – просто передвигаем ее.
+        //    if (myPlacemark) {
+        //        myPlacemark.geometry.setCoordinates(coords);
+        //    }
+        //    // Если нет – создаем.
+        //    else {
+        //        myPlacemark = createPlacemark(coords);
+        //        myMap.geoObjects.add(myPlacemark);
+        //        // Слушаем событие окончания перетаскивания на метке.
+        //    }
+        //    console.log(myPlacemark.geometry.getCoordinates())
+        //});
+    }
+
+    function createPlacemark(coords) {
+        return new ymaps.Placemark(coords, {
+            iconCaption: 'поиск...'
+        }, {
+            preset: 'islands#violetDotIconWithCaption',
+            draggable: true
+        });
+    }
 
     let banner = document.getElementsByClassName("banner")
     new simpleParallax(banner, {
@@ -312,24 +431,23 @@
         customWrapper: '.parallax-wrapper'
     })
 
-    let bannerBottom = document.getElementsByClassName("banner-btm")
-    new simpleParallax(bannerBottom, {
-        delay: .5,
-        transition: 'cubic-bezier(0,0,0,1)',
-        scale: 1.5,
-    })
+    //let bannerBottom = document.getElementsByClassName("banner-btm")
+    //new simpleParallax(bannerBottom, {
+    //    delay: .3,
+    //    transition: 'cubic-bezier(0,0,0,1)',
+    //    scale: 1.1,
+    //})
 
     const moreBtns = document.getElementsByName("moreBtn");
     const get_house_url = "{% url 'get_house' %}";
 
-    $(function () {
-        const options = {
-            visibleDistance: 20
-        };
-
-        $(".featurette").scrollFade(options);
-        $(".fadeIn").scrollFade(options);
-    });
+    //$(function () {
+    //    const options = {
+    //        visibleDistance: 20
+    //    };
+    //    $(".featurette").scrollFade(options);
+    //    $(".fadeIn").scrollFade(options);
+    //});
 
     moreBtns.forEach((btn) => {
         btn.onclick = (event) => {
@@ -363,12 +481,6 @@
             setTimeout(() => {
                 modalBg.style.display = 'none';
             }, modalAnimDuration - 50)
-        }
-    }
-    window.onscroll = (event) => {
-        if (event.target === document) {
-            event.stopPropagation()
-
         }
     }
 
