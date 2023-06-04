@@ -115,6 +115,29 @@
 
 </head>
 <body>
+<script>
+    const areas = [
+        [
+            {
+                "x": 0.27495107632093935,
+                "y": 0.36502500543596433
+            },
+            {
+                "x": 0.34540117416829746,
+                "y": 0.31631876494890193
+            },
+            {
+                "x": 0.35909980430528377,
+                "y": 0.5094042183083279
+            },
+            {
+                "x": 0.2857142857142857,
+                "y": 0.5250597956077409
+            }
+        ],
+    ]
+</script>
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -250,6 +273,64 @@
 
     </div><!-- /.container -->
 
+
+    <canvas id="planCanvas" style="width: 100%; height: 75vh">
+        <img src="images/genplan.jpg" alt="" id="planImage" style="display: none">
+    </canvas>
+
+    <script>
+
+        function convertToCanvas(points, startX, startY, imageWidth, imageHeight) {
+            let res = []
+            for (const point of points) {
+                res.push({
+                    x: startX + imageWidth * point.x,
+                    y: startY + imageHeight * point.y
+                })
+            }
+            return res
+        }
+
+        const canvas = document.getElementById("planCanvas")
+        canvas.width = canvas.clientWidth
+        canvas.height = canvas.clientHeight
+        const cx = canvas.getContext("2d")
+        const image = document.getElementById("planImage")
+        let startX, startY, imageWidth, imageHeight;
+
+        image.onload = (e) => {
+            const aspectRatio = image.naturalWidth / image.naturalHeight;
+            const w = canvas.width / 1.5;
+            const h = canvas.width / 1.5 / aspectRatio;
+            canvas.height = h
+            canvas.style.height = h + "px"
+            cx.drawImage(image, 0, 0, w, h)
+            startX = 0;
+            startY = 0;
+            imageWidth = w;
+            imageHeight = h;
+        }
+        let points = []
+
+        canvas.onmouseup = (e) => {
+            const clientX = e.clientX - canvas.getBoundingClientRect().x - startX;
+            const clientY = e.clientY - canvas.getBoundingClientRect().y - startY;
+
+            points.push({x: clientX / imageWidth, y: clientY / imageHeight})
+
+            let glob = convertToCanvas(areas[0], startX, startY, imageWidth, imageHeight)
+
+            cx.beginPath()
+            for (const point of glob) {
+                cx.lineTo(point.x, point.y)
+            }
+            cx.fill()
+
+            console.log(points)
+        }
+
+    </script>
+
     <div class="geo-block">
         <div class="block-title">
             <h2>Всего в часе езды
@@ -366,7 +447,7 @@
                 controls: ['zoomControl', 'routeButtonControl'],
             },
             {
-                maxZoom:15
+                maxZoom: 15
             }
         );
 
