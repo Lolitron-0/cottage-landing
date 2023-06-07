@@ -2,13 +2,14 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import render
 
-from .models import House
+from .models import House, Image
 
 
 def index(request):
     template = loader.get_template("index.html")
     context = {
         'houses': House.objects.all(),
+        'previews': Image.objects.filter(isPreview=True)
     }
     return HttpResponse(template.render(context, request))
 

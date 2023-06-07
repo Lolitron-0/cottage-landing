@@ -261,6 +261,25 @@ h2 {
     font-weight: 400;
 }
 
+.popup-block {
+    border-radius: 10px;
+    position: absolute;
+    height: max-content;
+    width: max-content;
+    padding: 5px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #666363;
+}
+
+.animated-fade {
+    animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-duration: 200ms;
+    -webkit-animation-duration: 200ms;
+}
+
 .tabbed {
     margin-left: 2rem;
 }

@@ -115,28 +115,6 @@
 
 </head>
 <body>
-<script>
-    const areas = [
-        [
-            {
-                "x": 0.27495107632093935,
-                "y": 0.36502500543596433
-            },
-            {
-                "x": 0.34540117416829746,
-                "y": 0.31631876494890193
-            },
-            {
-                "x": 0.35909980430528377,
-                "y": 0.5094042183083279
-            },
-            {
-                "x": 0.2857142857142857,
-                "y": 0.5250597956077409
-            }
-        ],
-    ]
-</script>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="check2" viewBox="0 0 16 16">
@@ -273,63 +251,41 @@
 
     </div><!-- /.container -->
 
+    <script>
+        document.previews = [
+            {% for preview in previews %}
+                "{{ preview.image }}" ,
+            {% endfor %}
+        ]
+    </script>
+
+    <div class="popup-block animated-fade" id="popup" style="display: none">
+        <img src="images/вид_1_4mwW8nP.jpg" alt="" style="height: 100px;object-fit: cover; border-radius: 10px">
+        <div style="display: flex; flex-direction: column; ">
+            <p style="margin: 0">Площадь участка: <span id="acreage">12</span> сот.</p>
+            <p style="margin: 0">Номер дома: <span id="number">5</span></p>
+            <p id="availability">Этот участок можно купить</p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" id="popup-close">
+            <circle cx="20" cy="20" r="19" stroke="grey" stroke-width="1" fill="rgba(0,0,0,0)"></circle>
+            <line x1="10" y1="10" x2="30" y2="30" style="stroke:grey; stroke-width:1"></line>
+            <line x1="10" y1="30" x2="30" y2="10" style="stroke:grey; stroke-width:1"></line>
+        </svg>
+    </div>
+    <div class="block-title" style="margin: 2rem">
+        <h2><span style="color: var(--highlight-color)">План</span>
+            участков
+        </h2>
+    </div>
 
     <canvas id="planCanvas" style="width: 100%; height: 75vh">
         <img src="images/genplan.jpg" alt="" id="planImage" style="display: none">
+        <img src="images/click.png" alt="" id="clickImage" style="display: none">
     </canvas>
 
-    <script>
-
-        function convertToCanvas(points, startX, startY, imageWidth, imageHeight) {
-            let res = []
-            for (const point of points) {
-                res.push({
-                    x: startX + imageWidth * point.x,
-                    y: startY + imageHeight * point.y
-                })
-            }
-            return res
-        }
-
-        const canvas = document.getElementById("planCanvas")
-        canvas.width = canvas.clientWidth
-        canvas.height = canvas.clientHeight
-        const cx = canvas.getContext("2d")
-        const image = document.getElementById("planImage")
-        let startX, startY, imageWidth, imageHeight;
-
-        image.onload = (e) => {
-            const aspectRatio = image.naturalWidth / image.naturalHeight;
-            const w = canvas.width / 1.5;
-            const h = canvas.width / 1.5 / aspectRatio;
-            canvas.height = h
-            canvas.style.height = h + "px"
-            cx.drawImage(image, 0, 0, w, h)
-            startX = 0;
-            startY = 0;
-            imageWidth = w;
-            imageHeight = h;
-        }
-        let points = []
-
-        canvas.onmouseup = (e) => {
-            const clientX = e.clientX - canvas.getBoundingClientRect().x - startX;
-            const clientY = e.clientY - canvas.getBoundingClientRect().y - startY;
-
-            points.push({x: clientX / imageWidth, y: clientY / imageHeight})
-
-            let glob = convertToCanvas(areas[0], startX, startY, imageWidth, imageHeight)
-
-            cx.beginPath()
-            for (const point of glob) {
-                cx.lineTo(point.x, point.y)
-            }
-            cx.fill()
-
-            console.log(points)
-        }
-
-    </script>
+    <script src="{% static 'genplan.js' %}"></script>
+    <p style="color: grey; margin-left: 2rem">* Проект дома на участке выбирает клиент</p>
+    <hr class="featurette-divider" style="margin-bottom: 0">
 
     <div class="geo-block">
         <div class="block-title">
