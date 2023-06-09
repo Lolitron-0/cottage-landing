@@ -71,24 +71,35 @@ function fetchHouseCard(url, houseId) {
                  
                 <div class="p-4">
                 <h2 class="fw-bold mb-0" style="text-align: center">Дом ${house.xSize} X ${house.ySize}</h2>
-
                 <ul class="d-grid gap-4 my-5 list-unstyled small">
                     <li class="d-flex gap-4">
                         <div>
-                            <h5 class="mb-0">Размер</h5>
-                            12х12
+                            <h5 class="mb-0">Площадь застройки</h5>
+                            ${house.area}м²
                         </div>
                     </li>
                     <li class="d-flex gap-4">
                         <div>
-                            <h5 class="mb-0">Материал</h5>
-                            самый хороший
+                            <h5 class="mb-0">Спальни</h5>
+                            ${house.bedrooms}
                         </div>
                     </li>
                     <li class="d-flex gap-4">
                         <div>
-                            <h5 class="mb-0">Цена</h5>
-                            ₽${house.price} млн.
+                            <h5 class="mb-0">Санузлы</h5>
+                            ${house.toilets}
+                        </div>
+                    </li>
+                    <li class="d-flex gap-4">
+                        <div>
+                            <h5 class="mb-0">Время строительства</h5>
+                            ${house.constructingTime} мес.
+                        </div>
+                    </li>
+                    <li class="d-flex gap-4" style="font-weight: bolder; align-items: flex-end; flex-direction: column; text-align: right; font-size: 15pt">
+                        <div>
+                            <h5 class="mb-0" style="font-weight: bold; font-size: 20pt">Стоимость</h5>
+                            от ${house.price} руб.
                         </div>
                     </li>
                 </ul>
@@ -99,15 +110,17 @@ function fetchHouseCard(url, houseId) {
             document.maxWidth = 0;
             document.minHeight = 10000000;
             document.imgsLoaded = 0
+            document.maxAspect = 0
             for (let i = 0; i < images.length; i++) {
                 const img = document.getElementById("houseImg" + i)
                 img.onload = () => {
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
+                    document.maxAspect = Math.max(aspectRatio, document.maxAspect)
                     document.maxWidth = Math.max(document.maxWidth, img.clientHeight * aspectRatio);
                     modal.style.width = Math.min(window.innerWidth, document.maxWidth) + "px";
                     document.imgsLoaded += 1
                     if (document.imgsLoaded == images.length)
-                        modal.getElementsByClassName('carousel')[0].style.height = parseInt(modal.style.width)/aspectRatio + "px"
+                        modal.getElementsByClassName('carousel')[0].style.height = parseInt(modal.style.width) / document.maxAspect + "px"
                 }
             }
 

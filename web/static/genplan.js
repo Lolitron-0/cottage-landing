@@ -216,7 +216,7 @@ const areas = [
             "x": 0.18996415770609318,
             "y": 0.5040571485463958
         }
-    ], 23, getNextImage(), 12.07, SALE_STATE.ON_SALE),
+    ], 23, getNextImage(), 12.07, SALE_STATE.RESERVED),
     new Area([
         {
             "x": 0.28046594982078854,
@@ -278,7 +278,7 @@ const areas = [
             "x": 0.4345878136200717,
             "y": 0.49051672640382316
         }
-    ], 17, getNextImage(), 21, SALE_STATE.ON_SALE),
+    ], 17, getNextImage(), 21, SALE_STATE.SOLD),
     new Area([
         {
             "x": 0.5255376344086021,
@@ -348,7 +348,7 @@ const areas = [
             "x": 0.6635304659498208,
             "y": 0.4841447630426125
         }
-    ], 11, getNextImage(), 21, SALE_STATE.ON_SALE),
+    ], 11, getNextImage(), 21, SALE_STATE.SOLD),
     new Area([
         {
             "x": 0.18548387096774194,

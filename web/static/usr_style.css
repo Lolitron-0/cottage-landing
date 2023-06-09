@@ -39,7 +39,7 @@ body {
 
 }
 
-.house-img {
+.house-img, .house-img-nonscalable {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -87,8 +87,10 @@ body {
 .carousel-mini {
     height: 45vh;
 }
+
 .carousel-photo {
-    height: 50vh;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -196,21 +198,6 @@ body {
     left: auto;
 }
 
-@media (max-width: 700px) {
-    .featurette-card:before {
-        left: 0;
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0);
-    }
-
-    .featurette-card:after {
-        opacity: 0;
-    }
-}
-
 .featurette-content {
     flex: 0 0 auto;
     width: 58.33333333%;
@@ -218,8 +205,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .featurette-title {
@@ -241,8 +228,9 @@ body {
     width: 100%;
     height: max-content;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .featurette-table-item {
@@ -250,9 +238,37 @@ body {
 }
 
 .photos-block {
-    height: 50vh;
+    height: max-content;
     width: 100%;
     display: flex;
+    padding: 5rem;
+    align-items: center;
+}
+
+.photo-description {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    width: 40%;
+}
+
+@media (max-width: 700px) {
+    .photos-block {
+        flex-direction: column;
+    }
+
+    .featurette-card:before {
+        left: 0;
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    .featurette-card:after {
+        opacity: 0;
+    }
 }
 
 /* rtl:end:remove */
