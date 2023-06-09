@@ -40,8 +40,7 @@ function fetchHouseCard(url, houseId) {
             activity = "active"
             for (let i = 0; i < images.length; i++) {
                 controlBtnsString += `
-                    <button type="button" data-bs-target="#myCarousel${houseId}" data-bs-slide-to="${i}" class="${activity}" aria-current="true" aria-label="Slide ${i + 1}"></button>
-                `
+                    <button type="button" data-bs-target="#myCarousel${houseId}" data-bs-slide-to="${i}" class="${activity}" aria-current="true" aria-label="Slide ${i + 1}"></button>`
                 activity = ""
             }
 
@@ -98,12 +97,17 @@ function fetchHouseCard(url, houseId) {
             `;
 
             document.maxWidth = 0;
+            document.minHeight = 10000000;
+            document.imgsLoaded = 0
             for (let i = 0; i < images.length; i++) {
                 const img = document.getElementById("houseImg" + i)
                 img.onload = () => {
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
                     document.maxWidth = Math.max(document.maxWidth, img.clientHeight * aspectRatio);
-                    modal.style.width = Math.min(window.innerWidth, document.maxWidth)  + "px";
+                    modal.style.width = Math.min(window.innerWidth, document.maxWidth) + "px";
+                    document.imgsLoaded += 1
+                    if (document.imgsLoaded == images.length)
+                        modal.getElementsByClassName('carousel')[0].style.height = parseInt(modal.style.width)/aspectRatio + "px"
                 }
             }
 

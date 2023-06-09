@@ -100,7 +100,7 @@ class Area {
     }
 
     idle() {
-        const r = canvas.height/40
+        const r = canvas.height / 40
         const center = this.getCenter()
         cx.fillStyle = this.color
         cx.strokeStyle = "white"
@@ -144,29 +144,20 @@ document.getElementById("popup-close").onclick = () => {
     areas.forEach((area) => area.selected = false)
 }
 
-let legendPts = [
+let legendPoint =
     {
-        "x": 0.20146314012380417,
-        "y": 0.16891765147251922
-    },
-    {
-        "x": 0.20146314012380417,
-        "y": 0.2199399737385106
-    },
-    {
-        "x": 0.2020258863252673,
-        "y": 0.27096229600450195
+        "x": 0.10795454545454546,
+        "y": 0.16835016835016836
     }
-]
 
 
-// i am fucking retarded 
+// i am fucking retarded
 function drawLegend() {
-    const r = canvas.height/50
+    const r = canvas.height / 50
     let color, text;
-    for (const i in legendPts) {
-        let center = {x:legendPts[0].x, y: legendPts[0].y}
-        center.y += (2*r+5)*i
+    for (const i in [0, 1, 2]) {
+        let center = {x: legendPoint.x, y: legendPoint.y}
+        center.y += (2 * r + r / 4) * i
         if (i == 0) {
             color = SALE_STATE.ON_SALE
             text = "В продаже"
@@ -188,7 +179,7 @@ function drawLegend() {
         cx.fill()
 
         cx.fillStyle = "white"
-        cx.font =  1.7* r + "px monospace"
+        cx.font = 1.7 * r + "px monospace"
         cx.textAlign = "start"
         cx.fillText(text, center.x + r + 10, center.y + r / 2)
     }
@@ -599,7 +590,7 @@ image.onload = (e) => {
     startY = 0;
     imageWidth = w;
     imageHeight = h;
-    legendPts = convertToCanvas(legendPts, startX, startY, imageWidth, imageHeight)
+    legendPoint = convertToCanvas([legendPoint], startX, startY, imageWidth, imageHeight)[0]
     render()
 }
 
@@ -630,7 +621,7 @@ function render() {
         area.idle()
     }
 
-    drawLegend();
+    //drawLegend();
 
     for (const area of areas) {
         if (area.selected)
@@ -652,12 +643,16 @@ canvas.onmousemove = (e) => {
 }
 
 canvas.onmouseup = (e) => {
-    canvas.wokeUp = true
+    if (!canvas.wokeUp) {
+        canvas.wokeUp = true
+        render()
+        return
+    }
     const clientX = e.clientX - canvas.getBoundingClientRect().x - startX;
     const clientY = e.clientY - canvas.getBoundingClientRect().y - startY;
     const clientPoint = {x: clientX / imageWidth, y: clientY / imageHeight}
 
-    logedits(e)
+    //logedits(e)
     for (let area of areas) {
         area.selected = area.isPointInside(clientPoint);
         if (area.selected) {
@@ -665,6 +660,8 @@ canvas.onmouseup = (e) => {
             document.getElementById("acreage").innerHTML = area.acreage
             document.getElementById("number").innerHTML = area.number
             document.getElementById("availability").innerHTML = area.getAvailabilityText()
+            document.getElementById("availability").style.color = area.color
+
             popup.classList.remove("animated-fade")
             void popup.offsetWidth;
             popup.classList.add("animated-fade")

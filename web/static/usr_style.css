@@ -3,10 +3,10 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
     color: rgb(var(--bs-tertiary-color-rgb));
     animation: fadeIn 2s ease;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
@@ -87,6 +87,11 @@ body {
 .carousel-mini {
     height: 45vh;
 }
+.carousel-photo {
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 10px;
+}
 
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -139,7 +144,6 @@ body {
 }
 
 /* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
@@ -215,6 +219,7 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .featurette-title {
@@ -230,6 +235,24 @@ body {
 /* rtl:begin:remove */
 .featurette-heading {
     letter-spacing: -.05rem;
+}
+
+.featurette-table {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.featurette-table-item {
+    margin: 2rem;
+}
+
+.photos-block {
+    height: 50vh;
+    width: 100%;
+    display: flex;
 }
 
 /* rtl:end:remove */
@@ -256,9 +279,17 @@ body {
 h2 {
     margin: auto;
     text-align: center;
-    font-size: 50px;
+    font-size: 50pt;
     letter-spacing: -.09rem;
-    font-weight: 400;
+    font-weight: 500;
+}
+
+h3 {
+    margin: auto;
+    text-align: center;
+    font-size: 30pt;
+    letter-spacing: -.09rem;
+    font-weight: 500;
 }
 
 .popup-block {

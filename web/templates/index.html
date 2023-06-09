@@ -168,14 +168,17 @@
 
     <div class="carousel-inner" style="height: 100vh">
         <div class="carousel-item active">
-            <div class="parallax-wrapper">
-                <img id="banner" class="banner banner-image" src="images/banner3.jpg" alt="bruh"
-                     style="filter: brightness(0.8)">
-            </div>
+            <video autoplay muted loop class="banner-image" style="filter:brightness(0.7);">
+                <source src="videos/banner.mp4" type="video/mp4">
+            </video>
+            {#            <div class="parallax-wrapper">#}
+            {#                <img id="banner" class="banner banner-image" src="images/banner3.jpg" alt="bruh"#}
+            {#                     style="filter: brightness(0.8)">#}
+            {#            </div>#}
         </div>
     </div>
     <div class="container">
-        <div class="carousel-caption text-start">
+        <div class="carousel-caption text-center">
             <h1 style="font-size: 45pt">Эксклюзивный экологический проект</h1>
             <p style="font-size: 25pt">Коттеджный поселок с кедровым питомником на "Барских полях"</p>
             {#                <p><a class="btn btn-lg btn-primary" href="#">Связаться</a></p>#}
@@ -195,61 +198,58 @@
 
         <div class="row featurette featurette-card">
             <div class="featurette-content">
-                <h2 class="fw-normal lh-1 featurette-title">Цель проекта. </h2>
+                <h2 class="lh-1 featurette-title">Цель проекта. </h2>
                 <p class="lead">Наша цель – создание кедрового питомника для разведения и выращивания
                     кедровых саженцев на территории «Барских полей», а также создание жилой зоны с уникальной
                     экосистемой. </p>
             </div>
-            <div class="col-md-2">
-                {#                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"#}
-                {#                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"#}
-                {#                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>#}
-                {#                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>#}
-                {#                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>#}
-                {#                </svg>#}
-
-            </div>
         </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette featurette-card">
-            <div class="featurette-content">
-                <h2 class="fw-normal lh-1 featurette-title">Коттеджи. </h2>
-                <p class="lead">Для застройки поселка строительной компанией Тарт-Хаус разработаны проекты домов в
-                    соответствии с концепцией экопоселения </p>
-            </div>
-            <div class="col-md-5 order-md-1" style="width: 700px; height: 500px;">
-                <img src="images/Дом_2_filmic_Hue.jpg" alt=""
-                     class="" style="width: 100%; height: 100%; object-fit: cover">
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="column featurette featurette-card">
-            <div class="featurette-content">
-                <h2 class=" fw-normal lh-1 featurette-title">And lastly, this one. <span class="text-body-secondary">Checkmate.</span>
-                </h2>
-                <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-                    intended to be actually read, simply here to give you a better view of what this would look like
-                    with some actual content. Your content.</p>
-            </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
-                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-                </svg>
-            </div>
-        </div>
-
-        <hr class="featurette-divider" style="margin-bottom: 0">
 
         <!-- /END THE FEATURETTES -->
 
     </div><!-- /.container -->
+
+    <hr class="featurette-divider">
+
+
+    <div class="photos-block">
+        <div class="photo">
+
+        </div>
+        <div id="photoCarousel" class="carousel slide carousel-photo" data-bs-ride="carousel" data-bs-theme="light">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="0" class=""
+                        aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                        class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#photoCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                        class=""></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="images/24.jpg" alt="" class="house-img">
+                </div>
+                <div class="carousel-item active">
+                    <img src="images/24.jpg" alt="" class="house-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/24.jpg" alt="" class="house-img">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <hr class="featurette-divider" style="margin-bottom: 0">
 
     <script>
         document.previews = [
@@ -264,7 +264,7 @@
         <div style="display: flex; flex-direction: column; ">
             <p style="margin: 0">Площадь участка: <span id="acreage">12</span> сот.</p>
             <p style="margin: 0">Номер дома: <span id="number">5</span></p>
-            <p id="availability">Этот участок можно купить</p>
+            <p id="availability" style="margin: 0; font-weight: bold">Этот участок можно купить</p>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" id="popup-close">
             <circle cx="20" cy="20" r="19" stroke="grey" stroke-width="1" fill="rgba(0,0,0,0)"></circle>
@@ -284,7 +284,8 @@
     </canvas>
 
     <script src="{% static 'genplan.js' %}"></script>
-    <p style="color: grey; margin-left: 2rem">* Проект дома на участке выбирает клиент</p>
+    <p style="text-align:center; width:100%; color: grey; margin-left: 2rem">* Проект дома на участке выбирает
+        клиент</p>
     <hr class="featurette-divider" style="margin-bottom: 0">
 
     <div class="geo-block">
@@ -297,16 +298,41 @@
         <div id="map" class="map"></div>
     </div>
 
+
     <!-- Three columns of text below the carousel -->
     <div class="cutout-container" style="padding-top: 0; height: max-content;">
+
         <img alt="" src="images/banner_btm.jpg" class="banner-btm banner-image" style="filter: brightness(0.6)">
+
+        <div class="block-title" style="margin: 3rem">
+            <h2 class="visible-text">Проекты домов
+            </h2>
+        </div>
+
+        <div class="featurette-table">
+            <div class="row featurette featurette-card featurette-table-item">
+                <div class="featurette-content">
+                    <h2 class="lh-1 featurette-title">Коттеджи. </h2>
+                    <p class="lead">Для застройки поселка строительной компанией Тарт-Хаус разработаны проекты домов в
+                        соответствии с концепцией экопоселения </p>
+                </div>
+            </div>
+            <div class="row featurette featurette-card featurette-table-item">
+                <div class="featurette-content">
+                    <h2 class="lh-1 featurette-title">Цель проекта. </h2>
+                    <p class="lead">Наша цель – создание кедрового питомника для разведения и выращивания
+                        кедровых саженцев на территории «Барских полей», а также создание жилой зоны с уникальной
+                        экосистемой. </p>
+                </div>
+            </div>
+        </div>
         <div class="row container" style="margin: auto; margin-top: 5rem">
             {% for house in houses %}
                 <div class="col-lg-4 fadeIn housecard-container">
                     <img class="bd-placeholder-img house-preview" width="140" height="140"
                          src="{{ house.get_preview_image.image }}" role="img" style="object-fit: cover"/>
 
-                    <h2 class="fw-normal visible-text">Дом {{ house.xSize }}x{{ house.ySize }}</h2>
+                    <h3 class="visible-text">Дом {{ house.xSize }}x{{ house.ySize }}</h3>
                     <p style="display: none" class="houseId">{{ house.id }}</p>
                     <p><a class="btn btn-secondary" name="moreBtn">Подробнее &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
@@ -375,11 +401,11 @@
 
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>&copy;2023 Turthouse &middot; <a href="https://turthouse.ru">Строительство деревянных домов под ключ</a>
-            &middot; <a href="#">Terms</a></p>
-    </footer>
+    {#    <footer class="footer">#}
+    {#        <p class="float-end"><a href="#">Back to top</a></p>#}
+    {#        <p>&copy;2023 Turthouse &middot; <a href="https://turthouse.ru">Строительство деревянных домов под ключ</a>#}
+    {#            &middot; <a href="#">Terms</a></p>#}
+    {#    </footer>#}
 </main>
 
 
@@ -519,6 +545,10 @@
                 modalBg.style.display = 'none';
             }, modalAnimDuration - 50)
         }
+    }
+
+    window.onresize = () => {
+        location.reload()
     }
 
 </script>
