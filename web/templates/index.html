@@ -133,7 +133,7 @@
 </svg>
 
 
-<header data-bs-theme="dark" >
+<header data-bs-theme="light" >
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color: rgba(0,0,0,0)">
         <div class="container-fluid" style="background-color: rgba(0,0,0,0)">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarCollapse"
@@ -566,6 +566,24 @@
     window.onresize = () => {
         location.reload()
     }
+    
+    document.onload = () => {
+        const observer = new MutationObserver((mutationList) => {
+            mutationList.forEach((mutation) => {
+                if (mutation.type == "attributes")
+                    if (mutation.attributeName == 'data-bs-theme' && document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+                        document.documentElement.setAttribute('data-bs-theme', 'light')
+                    }
+            });
+        });
+            
+        observer.observe(document.documentElement, {
+          attributeFilter: ["data-bs-theme"],
+          attributeOldValue: true,
+          subtree: true,
+        });
+    }
+
 
 </script>
 

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)7rm-wns5qby08dpfjslwsat$pe%^%ps89zm25u(k!d548ob4x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['niten.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['niten.pythonanywhere.com', '127.0.0.1', 'barskiepolya.ru', 'www.barskiepolya.ru']
 
 
 # Application definition
@@ -119,7 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+STATIC_ROOT = 'static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
