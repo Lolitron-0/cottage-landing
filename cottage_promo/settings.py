@@ -77,8 +77,11 @@ WSGI_APPLICATION = 'cottage_promo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u0499040_barsk',
+        'USER': 'u0499040_barsk',
+        'PASSWORD': 'lB5qX9yA8olK6kF6',
+        'HOST': 'localhost',
     }
 }
 
