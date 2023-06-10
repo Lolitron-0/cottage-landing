@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="ru" data-bs-theme="light">
 <head>
-    <script src="https://getbootstrap.com/docs/5.3/assets/js/color-modes.js"></script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -112,7 +110,6 @@
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
     <script src="{% static 'scrollFade.js' %}"></script>
-
 </head>
 <body>
 
@@ -565,24 +562,6 @@
 
     window.onresize = () => {
         location.reload()
-    }
-    
-    document.onload = () => {
-        const observer = new MutationObserver((mutationList) => {
-            mutationList.forEach((mutation) => {
-                if (mutation.type == "attributes")
-                    if (mutation.attributeName == 'data-bs-theme' && document.documentElement.getAttribute('data-bs-theme') == 'dark') {
-                        document.documentElement.setAttribute('data-bs-theme', 'light')
-                    }
-            });
-            console.log('asdf')
-        });
-            
-        observer.observe(document.documentElement, {
-          attributeFilter: ["data-bs-theme"],
-          attributeOldValue: true,
-          subtree: true,
-        });
     }
 
 
