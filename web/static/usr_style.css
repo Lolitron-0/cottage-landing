@@ -150,6 +150,7 @@ body {
 /* Featurettes
 ------------------------- */
 
+
 .featurette-card {
     width: 100%;
     max-width: 1000px;
@@ -198,15 +199,15 @@ body {
     left: auto;
 }
 
-.featurette-content {
+.featurette-content, .featurette-content-list {
     flex: 0 0 auto;
-    width: 58.33333333%;
+    width: 85%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
+    gap: 10px;
 }
 
 .featurette-title {
@@ -216,6 +217,10 @@ body {
 
 .featurette-divider {
     margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+.featurette-img {
+    width: 500px;
 }
 
 /* Thin out the marketing headings */
@@ -241,7 +246,9 @@ body {
     height: max-content;
     width: 100%;
     display: flex;
-    padding: 5rem;
+    flex-direction: row;
+    padding-left: 5rem;
+    padding-right: 5rem;
     align-items: center;
 }
 
@@ -250,25 +257,6 @@ body {
     flex-direction: column;
     margin: 2rem;
     width: 40%;
-}
-
-@media (max-width: 700px) {
-    .photos-block {
-        flex-direction: column;
-    }
-
-    .featurette-card:before {
-        left: 0;
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0);
-    }
-
-    .featurette-card:after {
-        opacity: 0;
-    }
 }
 
 /* rtl:end:remove */
@@ -366,6 +354,58 @@ h3 {
     padding: 3rem;
     margin-top: 5rem;
 }
+
+@media (max-width: 700px) {
+    .photos-block {
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .photo-description {
+        width: 100%;
+        margin: 0;
+    }
+
+    .carousel-photo {
+        width: calc(96vw);
+    }
+
+    h2 {
+        font-size: 30pt;
+    }
+
+    .featurette-card-container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .featurette-card:before {
+        left: 0;
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    .featurette-card:after {
+        opacity: 0;
+    }
+
+    .featurette-img {
+        width: 100%;
+    }
+
+    .featurette-content-list {
+        width: 100%;
+    }
+
+    .housecard-container {
+        width: 100%;
+    }
+}
+
 
 @-webkit-keyframes fadeIn {
     from {

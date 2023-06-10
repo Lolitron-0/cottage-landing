@@ -130,18 +130,18 @@
 </svg>
 
 
-<header data-bs-theme="light" >
+<header data-bs-theme="light">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color: rgba(0,0,0,0)">
         <div class="container-fluid" style="background-color: rgba(0,0,0,0)">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"  data-bs-target="#navbarCollapse"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse"  id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0" >
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link active" aria-current="page" href="#">Home</a>#}
-{#                    </li>#}
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link active" aria-current="page" href="#">Home</a>#}
+                    {#                    </li>#}
                 </ul>
 
                 <p class="lead d-flex" style="color: white; transform: translate(-100%, 25%)">+7 (925) 891 11 19</p>
@@ -166,8 +166,8 @@
     </div>
     <div class="container">
         <div class="carousel-caption text-center">
-            <h1 style="font-size: 45pt">Эксклюзивный экологический проект</h1>
-            <p style="font-size: 25pt">Коттеджный поселок с кедровым питомником на "Барских полях"</p>
+            <h2>Эксклюзивный экологический проект</h2>
+            <p class="lead">Коттеджный поселок с кедровым питомником на "Барских полях"</p>
             {#                <p><a class="btn btn-lg btn-primary" href="#">Связаться</a></p>#}
         </div>
     </div>
@@ -186,8 +186,9 @@
         <div class="row featurette featurette-card">
             <div class="featurette-content">
                 <h2 class="lh-1 featurette-title">Цель проекта. </h2>
-                <p class="lead">Наша цель – создание жилой зоны с уникальной экосистемой, сердцем которой является кедровый питомник. Барские поля – идеальное сочетание комфорта и единения с природой. </p>
-                <img src="images/aims.png" alt="">
+                <p class="lead">Наша цель – создание жилой зоны с уникальной экосистемой, сердцем которой является
+                    кедровый питомник. Барские поля – идеальное сочетание комфорта и единения с природой. </p>
+                <img src="images/aims.png" alt="" class="featurette-img">
             </div>
         </div>
 
@@ -263,7 +264,7 @@
     </script>
 
     <div class="popup-block animated-fade" id="popup" style="display: none">
-        <img src="images/вид_1_4mwW8nP.jpg" alt="" style="height: 100px;object-fit: cover; border-radius: 10px">
+        <img src="images/1.jpg" alt="" style="height: 100px;object-fit: cover; border-radius: 10px">
         <div style="display: flex; flex-direction: column; ">
             <p style="margin: 0">Площадь участка: <span id="acreage">12</span> сот.</p>
             <p style="margin: 0">Номер дома: <span id="number">5</span></p>
@@ -312,30 +313,33 @@
             </h2>
         </div>
 
-        <div class="featurette-table">
-            <div class="row featurette featurette-card featurette-table-item">
-                <div class="featurette-content">
-                    <h2 class="lh-1 featurette-title">Коттеджи. </h2>
-                    <p class="lead">Для застройки поселка строительной компанией Тарт-Хаус разработаны проекты домов в
-                        соответствии с концепцией экопоселения </p>
+        <div class="featurette-card-container">
+            <div class="featurette-table">
+                <div class="row featurette featurette-card featurette-table-item">
+                    <div class="featurette-content">
+                        <h2 class="lh-1 featurette-title">Коттеджи. </h2>
+                        <p class="lead">Для застройки поселка строительной компанией Тарт-Хаус разработаны проекты домов
+                            в
+                            соответствии с концепцией экопоселения </p>
+                    </div>
                 </div>
-            </div>
-            <div class="row featurette featurette-card featurette-table-item">
-                <div class="featurette-content">
-                    <h2 class="lh-1 featurette-title">Комплект услуг. </h2>
-                    <p class="lead"> Что входит в стоимость дома:</p>
-                    <ul class="lead">
-                        <li>Проектирование</li>
-                        <li>Геодезические и геологические исследования</li>
-                        <li>Привязка строения на участке</li>
-                        <li>Доставка материалов</li>
-                        <li>Строительно-монтажные работы</li>
-                        <li>Прокладка инженерных сетей</li>
-                        <li>Фото и видеоотчеты строительного процесса</li>
-                        <li>Технадзор</li>
-                    </ul>
+                <div class="row featurette featurette-card featurette-table-item">
+                    <div class="featurette-content-list" style="align-items: flex-start">
+                        <h2 class="lh-1 featurette-title">Комплект услуг. </h2>
+                        <p class="lead"> Что входит в стоимость дома:</p>
+                        <ul class="lead">
+                            <li>Проектирование</li>
+                            <li>Геодезические и геологические исследования</li>
+                            <li>Привязка строения на участке</li>
+                            <li>Доставка материалов</li>
+                            <li>Строительно-монтажные работы</li>
+                            <li>Прокладка инженерных сетей</li>
+                            <li>Фото и видеоотчеты строительного процесса</li>
+                            <li>Технадзор</li>
+                        </ul>
 
-                    <a href="" class="lead">Технология строительства</a>
+                        <a href="" class="lead">Технология строительства</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -367,35 +371,37 @@
     <hr class="featurette-divider" style="margin: 0rem;">
 
     <div class="cutout-container">
-        <div class="column featurette featurette-card">
-            <div class="featurette-content" style="align-items: flex-start; width: 75%">
-                <h2 class=" fw-normal lh-1 featurette-title">Контакты</h2>
-                <div style="display: flex">
-                    <div style="display: flex; flex-direction: column">
-                        <h4>АН "На Петровке"</h4>
-                        <div class="tabbed">
-                            <h5>Адрес: <span class="lead">ул. Петровка, дом 20/1 </span></h5>
-                            <span class="lead">+7 (925) 891 11 19</span> <br>
-                            <span class="lead">+7 (999) 346 88 14</span> <br>
-                            <span class="lead">+7 (459) 777 00 32</span> <br>
-                            <span class="lead">vladimirskaya@napetrovke.ru</span>
-                            <br>
-                            <a class="lead" href="https://napetrovke.ru">napetrovke.ru</a>
+        <div class="featurette-card-container">
+            <div class="column featurette featurette-card">
+                <div class="featurette-content-list" style="align-items: flex-start;">
+                    <h2 class=" fw-normal lh-1 featurette-title">Контакты</h2>
+                    <div style="display: flex">
+                        <div style="display: flex; flex-direction: column">
+                            <h4>АН "На Петровке"</h4>
+                            <div class="tabbed">
+                                <h5>Адрес: <span class="lead">ул. Петровка, дом 20/1 </span></h5>
+                                <span class="lead">+7 (925) 891 11 19</span> <br>
+                                <span class="lead">+7 (999) 346 88 14</span> <br>
+                                <span class="lead">+7 (459) 777 00 32</span> <br>
+                                <span class="lead">vladimirskaya@napetrovke.ru</span>
+                                <br>
+                                <a class="lead" href="https://napetrovke.ru">napetrovke.ru</a>
+                            </div>
+                            <h4>Застройщик ООО"Тарт-Хаус" <br>
+                                <a class="lead tabbed" href="https://turthouse.ru">turthouse.ru</a>
+                            </h4>
                         </div>
-                        <h4>Застройщик ООО"Тарт-Хаус" <br>
-                            <a class="lead tabbed" href="https://turthouse.ru">turthouse.ru</a>
-                        </h4>
                     </div>
                 </div>
+                {#            <div class="col-md-5">#}
+                {#                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"#}
+                {#                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"#}
+                {#                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>#}
+                {#                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>#}
+                {#                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>#}
+                {#                </svg>#}
+                {#            </div>#}
             </div>
-            {#            <div class="col-md-5">#}
-            {#                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"#}
-            {#                     height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"#}
-            {#                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>#}
-            {#                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>#}
-            {#                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>#}
-            {#                </svg>#}
-            {#            </div>#}
         </div>
     </div>
 
