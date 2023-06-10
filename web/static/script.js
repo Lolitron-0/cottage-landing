@@ -103,9 +103,32 @@ function fetchHouseCard(url, houseId) {
                         </div>
                     </li>
                 </ul>
+                <div style="width: 100%; text-align: center" id="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                        <circle cx="20" cy="20" r="19" stroke="grey" stroke-width="1" fill="rgba(0,0,0,0)"></circle>
+                        <line x1="10" y1="10" x2="30" y2="30" style="stroke:grey; stroke-width:1"></line>
+                        <line x1="10" y1="30" x2="30" y2="10" style="stroke:grey; stroke-width:1"></line>
+                    </svg>
                 </div>
+               </div>
             </div>
             `;
+
+            document.getElementById("close").onclick = () => {
+                modalBg.animate(modalBgAnim, {
+                    duration: modalAnimDuration,
+                    iterations: 1,
+                    direction: "reverse",
+                })
+                modal.animate(modalAnim, {
+                    duration: modalAnimDuration,
+                    iterations: 1,
+                    direction: "reverse",
+                })
+                setTimeout(() => {
+                    modalBg.style.display = 'none';
+                }, modalAnimDuration - 50)
+            }
 
             document.maxWidth = 0;
             document.minHeight = 10000000;
