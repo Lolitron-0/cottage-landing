@@ -572,12 +572,28 @@ const areas = [
 ]
 
 const canvas = document.getElementById("planCanvas")
+const cx = canvas.getContext("2d")
 canvas.width = canvas.clientWidth
 canvas.height = canvas.clientHeight
-const cx = canvas.getContext("2d")
 const image = document.getElementById("planImage")
 const clickImage = document.getElementById("clickImage")
 let startX, startY, imageWidth, imageHeight;
+
+function init() {
+    const aspectRatio = image.naturalWidth / image.naturalHeight;
+    const w = canvas.width;
+    const h = canvas.width / aspectRatio;
+    canvas.height = h
+    canvas.style.height = h + "px"
+    cx.drawImage(image, 0, 0, w, h)
+    startX = 0;
+    startY = 0;
+    imageWidth = w;
+    imageHeight = h;
+    legendPoint = convertToCanvas([legendPoint], startX, startY, imageWidth, imageHeight)[0]
+    render()
+}
+
 
 image.onload = (e) => {
     const aspectRatio = image.naturalWidth / image.naturalHeight;
@@ -593,6 +609,7 @@ image.onload = (e) => {
     legendPoint = convertToCanvas([legendPoint], startX, startY, imageWidth, imageHeight)[0]
     render()
 }
+
 
 clickImage.onload = () => {
     canvas.wokeUp = false

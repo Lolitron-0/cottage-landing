@@ -415,6 +415,12 @@ h3 {
     }
 }
 
+@media (max-width: 300px) {
+    h2 {
+        font-size: 20pt;
+    }
+}
+
 
 @-webkit-keyframes fadeIn {
     from {
